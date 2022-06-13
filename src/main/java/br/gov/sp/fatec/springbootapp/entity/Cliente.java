@@ -23,11 +23,11 @@ public class Cliente {
     private Long id;
     
     @JsonView({View.ClienteResumo.class, View.ClientePetResumo.class})
-    @Column(name = "cli_nome", unique=true, length= 20, nullable= false)
+    @Column(name = "cli_nome", unique=true, length= 20, nullable= true)
     private String nome;
 
     @JsonView({View.ClienteResumo.class, View.ClientePetResumo.class})
-    @Column(name = "cli_pet", length= 20, nullable= false)
+    @Column(name = "cli_pet", length= 20, nullable= true)
     private String pet;
 
     @Column(name = "cli_pedido", length= 20, nullable= true)

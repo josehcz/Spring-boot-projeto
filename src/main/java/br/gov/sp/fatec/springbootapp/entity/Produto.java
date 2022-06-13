@@ -7,6 +7,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
+import br.gov.sp.fatec.springbootapp.controler.View;
+
 
 @Entity
 @Table(name = "prod_produtos")
@@ -17,9 +21,11 @@ public class Produto {
     @Column(name = "prod_id")
     private Long id;
 
+    @JsonView(View.ProdutoResumo.class)
     @Column(name = "prod_nome", unique=true, length= 20, nullable= false)
     private String produto;
 
+    @JsonView(View.ProdutoResumo.class)
     @Column(name = "prod_valor", nullable= false)
     private Long valor;
 

@@ -30,7 +30,7 @@ public class ClienteControler {
     private SegurancaService segurancaService;
 
     @JsonView(View.ClienteResumo.class)
-    @GetMapping()
+    @GetMapping(value = "/busca")
     public List<Cliente> buscarTodos(){
         return segurancaService.buscarTodosClientes();
     }
@@ -41,9 +41,9 @@ public class ClienteControler {
         return segurancaService.buscarClienteId(id);
     }
 
-    @JsonView(View.ClienteResumo.class)
-    @GetMapping(value = "/nome")
-    public Cliente buscarClientePorNome(@RequestParam(value="nome")String nome){
+    @JsonView(View.ClienteCompleto.class)
+    @GetMapping(value = "/nome/{nome}")
+    public Cliente buscarClientePorNome(@PathVariable("nome") String nome){
         return segurancaService.buscarClientePorNome(nome);
     }
     

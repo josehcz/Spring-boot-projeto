@@ -6,6 +6,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 
 import br.gov.sp.fatec.springbootapp.entity.Autorizacao;
 import br.gov.sp.fatec.springbootapp.entity.Cliente;
+import br.gov.sp.fatec.springbootapp.entity.Compra;
+import br.gov.sp.fatec.springbootapp.entity.Produto;
 import br.gov.sp.fatec.springbootapp.entity.Usuario;
 
 public interface SegurancaService extends UserDetailsService{
@@ -36,5 +38,13 @@ public interface SegurancaService extends UserDetailsService{
 
     public Cliente geraPedido(String nome, String pedido, Long gasto);
 
-    //pedido
+    //compra
+
+    public Compra realizarCompra(String cliente, String produto,Long valor);
+
+    //Produto
+
+    public List<Produto> buscarTodosProdutos();
+
+    public Produto cadastraProduto(String produto, Long valor);
 }

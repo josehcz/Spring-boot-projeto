@@ -35,7 +35,7 @@ create table cli_cliente (
   primary key (cli_id)
 );
 
-create table produtos(
+create table prod_produtos(
 	prod_id bigint unsigned not null auto_increment,
     prod_nome varchar(20) not null,
     prod_valor bigint not null,
@@ -44,6 +44,7 @@ create table produtos(
 
 create table reg_compras(
 	regc_id bigint unsigned not null auto_increment,
+    regc_cliente varchar(100) not null,
     regc_compra varchar(100) not null,
     regc_valor bigint not null,
     primary key (regc_id)
@@ -60,12 +61,22 @@ insert into usr_usuario (usr_nome, usr_senha)
     values ('admin', '$2a$10$i3.Z8Yv1Fwl0I5SNjdCGkOTRGQjGvHjh/gMZhdc3e7LIovAklqM6C');
 insert into aut_autorizacao (aut_nome)
     values ('ROLE_ADMIN');
+insert into aut_autorizacao (aut_nome)
+    values ('ROLE_FUNCIONARIO');
+insert into aut_autorizacao (aut_nome)
+    values ('ROLE_USUARIO');
 insert into uau_usuario_autorizacao values (1, 1);
 
 insert into usr_usuario (usr_nome, usr_senha)
     values ('jose', 'jose@123');
 select * from usr_usuario;
 insert into uau_usuario_autorizacao values (2, 1);
+
+select * from usr_usuario;
+
+select * from cli_cliente;
+
+select * from prod_produtos;
 
 insert into cli_cliente values ('1','cliente1','pet1','teste');
 

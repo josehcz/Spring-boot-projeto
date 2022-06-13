@@ -17,10 +17,10 @@ public class Pedido {
     @Column(name = "regp_id")
     private Long id;
 
-    @Column(name = "regp_pedido", length= 100, nullable= false)
+    @Column(name = "regp_pedido", length= 100, nullable= true)
     private String pedido;
 
-    @Column(name = "regp_valor", nullable= false)
+    @Column(name = "regp_valor", nullable= true)
     private Long valor;
 
     public Long getId() {

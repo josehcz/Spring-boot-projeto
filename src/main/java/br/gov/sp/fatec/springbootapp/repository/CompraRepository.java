@@ -10,6 +10,8 @@ public interface CompraRepository extends JpaRepository<Compra, Long>{
 
     public Compra findByid(Long id);
 
+    public Compra findByCliente(String cliente);
+
     public List<Compra> findByValorGreaterThan(Long valor);
 
     public List<Compra> findByValorLessThan(Long valor);

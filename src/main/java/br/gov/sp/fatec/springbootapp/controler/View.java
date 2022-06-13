@@ -13,5 +13,7 @@ public class View {
     public static class ClientePetResumo {}
 
     public static class ClienteCompleto extends ClienteResumo{}
+
+    public static class ProdutoResumo {}
     
 }

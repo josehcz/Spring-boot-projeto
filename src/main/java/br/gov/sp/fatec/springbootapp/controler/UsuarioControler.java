@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
@@ -40,11 +39,11 @@ public class UsuarioControler {
     @GetMapping(value = "/{id}")
     public Usuario buscarPorId(@PathVariable("id") Long id){
         return segurancaService.buscarUsuarioId(id);
-    }
+    }   
 
     @JsonView(View.UsuarioResumo.class)
-    @GetMapping(value = "/nome")
-    public Usuario buscarUsuarioPorNome(@RequestParam(value="nome")String nome){
+    @GetMapping(value = "/nome/{nome}")
+    public Usuario buscarUsuarioPorNome(@PathVariable("nome") String nome){
         return segurancaService.buscarUsuarioPorNome(nome);
     }
     
@@ -61,7 +60,7 @@ public class UsuarioControler {
     }
 
     @JsonView(View.AutorizacaoResumo.class)
-    @GetMapping(value = "autorizacao/{autorizacao}")
+    @GetMapping(value = "/autorizacao/{autorizacao}")
     public Autorizacao buscarAutorizacaoPorNome(@PathVariable("autorizacao") String nome){
         return segurancaService.buscarAutorizacaoPorNome(nome);
     }

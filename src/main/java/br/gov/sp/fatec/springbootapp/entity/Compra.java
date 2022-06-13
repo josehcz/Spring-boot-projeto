@@ -18,7 +18,10 @@ public class Compra {
     private Long id;
 
     @Column(name = "regc_compra", length= 100, nullable= false)
-    private String itens;
+    private String item;
+
+    @Column(name = "regc_cliente", length= 100, nullable= false)
+    private String cliente;
 
     @Column(name = "regc_valor", nullable= false)
     private Long valor;
@@ -31,12 +34,20 @@ public class Compra {
         this.id = id;
     }
 
-    public String getItens() {
-        return itens;
+    public String getItem() {
+        return item;
     }
 
-    public void setItens(String itens) {
-        this.itens = itens;
+    public void setItem(String item) {
+        this.item = item;
+    }
+
+    public String getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(String cliente) {
+        this.cliente = cliente;
     }
 
     public Long getValor() {
