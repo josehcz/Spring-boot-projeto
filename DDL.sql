@@ -1,4 +1,8 @@
+create schema petshop;
+
 use petshop;
+
+create user jose@'localhost' identified by 'jose123';
 
 grant select, insert, delete, update on petshop.* to jose@'localhost';
 
@@ -63,21 +67,7 @@ insert into aut_autorizacao (aut_nome)
     values ('ROLE_ADMIN');
 insert into aut_autorizacao (aut_nome)
     values ('ROLE_FUNCIONARIO');
-insert into aut_autorizacao (aut_nome)
-    values ('ROLE_USUARIO');
+
 insert into uau_usuario_autorizacao values (1, 1);
-
-insert into usr_usuario (usr_nome, usr_senha)
-    values ('jose', 'jose@123');
-select * from usr_usuario;
-insert into uau_usuario_autorizacao values (2, 1);
-
-select * from usr_usuario;
-
-select * from cli_cliente;
-
-select * from prod_produtos;
-
-insert into cli_cliente values ('1','cliente1','pet1','teste');
 
 
